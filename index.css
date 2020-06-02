@@ -1,0 +1,22 @@
+.todo,
+.doing,
+.verify,
+.done {
+    background: papayawhip;
+    text-align: center;
+    margin-right: 5px;
+    width: 35vh;
+}
+
+p>a {
+    float: right;
+}
+
+#saveInfor {
+    background: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+input {
+    border: 1px solid white;
+}
