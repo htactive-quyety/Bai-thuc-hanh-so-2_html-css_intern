@@ -2,7 +2,7 @@
 <html>
 
 <head>
-
+    <title>Bài thực hành 2 TO-DO-LIST</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -16,51 +16,168 @@
     <div class="container">
         <div class="content"><br><br>
             <div class="row">
-                <div class="todo  ">
-                    <p>TODO <a href="#" style="text-decoration: none;">...</a></p>
-                    <p id="saveInfor"></p>
-                    <form action="">
-                        <div class="form-group">
-                            <div id="formadd"></div>
+                <div class="listCard">
+                    <p><strong>TODO</strong> <a href="#" style="text-decoration: none;" data-toggle="modal" data-target=".bd-example-modal-sm">...</a></p>
+                    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h6 class="modal-title" id="exampleModalLabel"> Thao tác</h6>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                                </div>
+                                <div class="modal-body">
+                                    <ul>
+                                        <li>Thêm thẻ</li>
+                                        <li>Sao chép danh sách...</li>
+                                        <li>Di chuyển danh sách...</li>
+                                        <li>Theo dõi</li>
+                                        <hr>
+                                        <li>Sắp xếp theo...</li>
+                                        <hr>
+                                        <li>Di chuyển tất cả các thẻ trong danh sách này...</li>
+                                        <li>Lưu trữ tất cả các thẻ trong danh sách này</li>
+                                        <hr>
+                                        <li>Lưu trữ danh sách này</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                    </form>
-                    <a href="#" onclick="addFunction()"><i class="fa fa-plus"> Thêm thẻ</i></a>&nbsp;&nbsp;
-                    <a href="#" onclick="saveFunction()"><i class="fa fa-floppy-o"> Save</i></a>
+                    </div>
+                    <div id="listCard1">
+
+                    </div><br>
+                    <ul id="saveInfor1">
+                        <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <div class="col-sm-12">
+                                                    <h6>
+                                                        <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                                                        <span id="listId"></span>
+                                                    </h6>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <p style="font-size: 14px;">trong danh sách<a href="#">Những việc cần làm</a></p>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-5">
+                                            </div>
+                                            <div class="col-sm-3">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="col-sm-4">
+                                                <div class="grid-container" style="display:grid;">
+                                                    <div>
+                                                        <h6>Mô tả</h6>
+                                                    </div>
+                                                    <div>
+                                                        <p><a href="#">Thêm mô tả chi tiết hơn...</a></p>
+                                                    </div>
+                                                    <div>
+                                                        <h6>Checklist</h6>
+                                                    </div>
+                                                    <div>
+                                                        <h6>Hoạt động</h6>
+                                                    </div>
+                                                    <div><textarea id="writeComment" placeholder="Viết bình luận"></textarea></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-5"></div>
+                                            <div class="col-sm-3">
+                                                <div id="modal-right">
+                                                    <div>
+                                                        <h6 style="float: right;">Thêm vào thẻ</h6>
+                                                    </div>
+                                                    <div>
+                                                        <a href="#">
+                                                            <span><i class="fa fa-user-o" aria-hidden="true"></i></span>
+                                                            <span>Thành viên</span>
+                                                        </a>
+                                                    </div>
+                                                    <div>
+                                                        <a href="#">
+                                                            <span><i class="fa fa-tag" aria-hidden="true"></i></span>
+                                                            <span>Nhãn</span>
+                                                        </a>
+                                                    </div>
+                                                    <div>
+                                                        <a href="#">
+                                                            <span><i class="fa fa-check-square-o" aria-hidden="true"></i></span>
+                                                            <span>Việc cần làm</span>
+                                                        </a>
+                                                    </div>
+                                                    <div>
+                                                        <a href="#">
+                                                            <span><i class="fa fa-clock-o" aria-hidden="true"></i></span>
+                                                            <span>Ngày hết hạn</span>
+                                                        </a>
+                                                    </div>
+                                                    <div>
+                                                        <a href="#">
+                                                            <span><i class="fa fa-paperclip" aria-hidden="true"></i></span>
+                                                            <span>Đính kèm</span>
+                                                        </a>
+                                                    </div>
+                                                    <div>
+                                                        <a href="#">
+                                                            <span><i class="fa fa-picture-o" aria-hidden="true"></i></span>
+                                                            <span>Ảnh bìa</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </ul>
+                    <a href="#" onclick='addFunction(1)' id="addtag1" style="display: block"><i class="fa fa-plus"> Thêm thẻ</i></a>
+                    <a href="#" onclick="saveFunction(1)" style="display: none" id="save1"><i  class="fa fa-floppy-o"> Save</i></a>
+                    </div>
+                    <div class="listCard">
+                        <p><strong>DOING</strong> <a href="#" style="text-decoration: none;">...</a></p>
+                        <div id="listCard2">
+                        </div><br>
+                        <ul id="saveInfor2">
+                        </ul>
+                        <a href="#" onclick='addFunction(2)' id="addtag2" style="display: block"><i class="fa fa-plus"> Thêm thẻ</i></a>
+                        <a href="#" onclick="saveFunction(2)" style="display: none" id="save2"><i class="fa fa-floppy-o"> Save</i></a>
+                    </div>
+                    <div class="listCard ">
+                        <p><strong>VERIFY</strong> <a href="#" style="text-decoration: none;">...</a></p>
+                        <div id="listCard3">
+                        </div><br>
+                        <ul id="saveInfor3">
+                        </ul>
+                        <a href="#" onclick='addFunction(3)' id="addtag3" style="display: block"><i class="fa fa-plus"> Thêm thẻ</i></a>
+                        <a href="#" onclick="saveFunction(3)" style="display: none" id="save3"><i class="fa fa-floppy-o"> Save</i></a>
+                    </div>
+                    <div class="listCard">
+                        <p><strong>DONE</strong> <a href="#" style="text-decoration: none;">...</a></p>
+                        <div id="listCard4">
+                        </div><br>
+                        <ul id="saveInfor4">
+                        </ul>
+                        <a href="#" onclick='addFunction(4)' id="addtag4" style="display: block"><i class="fa fa-plus"> Thêm thẻ</i></a>
+                        <a href="#" onclick="saveFunction(4)" style="display: none" id="save4"><i class="fa fa-floppy-o"> Save</i></a>
+                    </div>
                 </div>
-                <div class="doing ">
-                    <p>DOING <a href="#" style="text-decoration: none;">...</a></p>
-                    <p id="saveInfor"></p>
-                    <form action="">
-                        <div class="form-group">
-                            <div id="formadd"></div>
-                        </div>
-                    </form>
-                    <a href="#"><i class="fa fa-plus"> Thêm thẻ</i></a>
-                    <a href="#"><i class="fa fa-floppy-o" aria-hidden="true"> Save</i></a>
-                </div>
-                <div class="verify ">
-                    <p>VERIFY <a href="#" style="text-decoration: none;">...</a></p>
-                    <form action="">
-                        <div class="form-group">
-                        </div>
-                    </form>
-                    <a href="#"><i class="fa fa-plus"> Thêm thẻ</i></a>
-                    <a href="#"><i class="fa fa-floppy-o" aria-hidden="true"> Save</i></a>
-                </div>
-                <div class="done">
-                    <p>DONE <a href="#" style="text-decoration: none;">...</a></p>
-                    <form action="">
-                        <div class="form-group">
-                        </div>
-                    </form>
-                    <a href="#"><i class="fa fa-plus"> Thêm thẻ</i></a>
-                    <a href="#"><i class="fa fa-floppy-o" aria-hidden="true"> Save</i></a>
-                </div>
+
+
             </div>
-
-
         </div>
-    </div>
 
 </body>
 <script src="index.js "></script>
